@@ -1,0 +1,82 @@
+#include<cstdio>
+#include<cstring>
+#include<iostream>
+using namespace std;
+int main()
+{
+	char a[4][12];
+	int k,i,j,r,l;
+	cin>>k;
+	if(k>=49)
+	{
+		cout<<"no"<<endl;
+		exit(0);
+	}
+	if(k<=45)
+	{
+		memset(a,'#',sizeof(a));
+		r=k%4;
+		l=11-k/4;
+		a[r][l]='X';
+		for(i=0;i<r;i++)
+		    a[i][l]='O';
+	    for(i=0;i<4;i++)
+	        for(j=11;j>l;j--)
+	            a[i][j]='O';
+	    cout<<"yes"<<endl;
+	    cout<<"+--------------------------+"<<endl;
+	    for(i=0;i<4;i++)
+	    {
+	        cout<<"|";
+	        for(j=0;j<12;j++)
+	        {
+	        	cout<<a[i][j]<<".";
+		    }
+		    if(i==0)
+		        cout<<"|D|)"<<endl;
+		    if(i==1)
+		    {
+		    	cout<<"|.|"<<endl;
+		    	cout<<"|#.........................|"<<endl;
+			}
+			if(i==2)
+			    cout<<"|.|"<<endl;
+			if(i==3)
+			    cout<<"|.|)"<<endl;
+		}
+		cout<<"+--------------------------+"<<endl;
+	}
+	if(k==46)
+	{
+		cout<<"yes"<<endl;
+		cout<<"+--------------------------+"<<endl;
+        cout<<"|O.O.O.O.O.O.O.O.O.O.O.O.|D|)"<<endl;
+        cout<<"|O.O.O.O.O.O.O.O.O.O.O.O.|.|"<<endl;
+        cout<<"|X.........................|"<<endl;
+        cout<<"|#.O.O.O.O.O.O.O.O.O.O.O.|.|"<<endl;
+        cout<<"|#.O.O.O.O.O.O.O.O.O.O.O.|.|)"<<endl;
+        cout<<"+--------------------------+"<<endl;
+	}
+	if(k==47)
+	{
+		cout<<"yes"<<endl;
+		cout<<"+--------------------------+"<<endl;
+        cout<<"|O.O.O.O.O.O.O.O.O.O.O.O.|D|)"<<endl;
+        cout<<"|O.O.O.O.O.O.O.O.O.O.O.O.|.|"<<endl;
+        cout<<"|O.........................|"<<endl;
+        cout<<"|X.O.O.O.O.O.O.O.O.O.O.O.|.|"<<endl;
+        cout<<"|#.O.O.O.O.O.O.O.O.O.O.O.|.|)"<<endl;
+        cout<<"+--------------------------+"<<endl;
+	}
+	if(k==48)
+	{
+		cout<<"yes"<<endl;
+		cout<<"+--------------------------+"<<endl;
+        cout<<"|O.O.O.O.O.O.O.O.O.O.O.O.|D|)"<<endl;
+        cout<<"|O.O.O.O.O.O.O.O.O.O.O.O.|.|"<<endl;
+        cout<<"|O.........................|"<<endl;
+        cout<<"|O.O.O.O.O.O.O.O.O.O.O.O.|.|"<<endl;
+        cout<<"|X.O.O.O.O.O.O.O.O.O.O.O.|.|)"<<endl;
+        cout<<"+--------------------------+"<<endl;
+	}
+}

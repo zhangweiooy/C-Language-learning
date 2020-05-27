@@ -1,0 +1,8 @@
+#include "stdio.h"     
+int myinput(int card[],int number[])    
+{         int i,n;        
+char s[5];            
+for(i=0;i<4;i++)        
+{             scanf("%d",&n);            number[i]=n;            while(n--)            {                 scanf("%s",s);                switch(s[0])                {    
+                case 'S':card[13]=i;break;                    case 'D':card[14]=i;break;                    case 'C':card[15]=i;break;                     case 'H':s[2]=='\0'?(card[s[1]-'1']=i):(card[s[2]-'1'+10]=i);                }            }        }         return number[0]+number[1]+number[2]+number[3];    }   int main()    {         int            value[15]={-50,-2,-3,-4,-5,-6,-7,-8,-9,-10,-20,-30,-40,-100,100},            card[16],             score[4]={0,0,0,0},            number[4],            i,s,            input();            while(myinput(card,number))        {             for(i=0,s=0;i<13;i++)                s+=card[i];            if(s%13)            {                 for(i=0;i<15;i++)                     score[card[i]]+=value[i];            }            else           {                 if(card[0]==card[13]&&card[13]==card[14])                    score[card[0]]+=500;                else               {                     score[card[0]]+=200;                     score[card[14]]+=value[14];                    score[card[13]]+=value[13];                }            }             score[card[15]]+=number[card[15]]==1?50:score[card[15]];            for(i=0;i<4;i++)                 printf("%s%d%s",score[i]>0?"+":"",score[i],i==3?"\n":" ");            for(i=0;i<4;i++)                score[i]=0;    
+    }         return 0;    } 
